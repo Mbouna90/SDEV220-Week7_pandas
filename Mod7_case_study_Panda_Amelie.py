@@ -1,0 +1,15 @@
+import pandas as pd
+df = pd.read_csv("telco_churn.csv")
+print(df.head(10))
+print(df.columns)
+print(df.info())
+print(df.describe())
+print(df["Area code"])
+print(df[["State", "Account length"]])
+print(df[df["Number vmail messages"] > 50])
+print(df.sort_values("Total night minutes", ascending=False))
+print(df.isnull().sum())
+print(df.dropna(inplace=True))
+df["new column"] = df["Total eve calls"] + df["Total intl calls"]
+print(df["new column"])
+df.to_csv('output.csv')
